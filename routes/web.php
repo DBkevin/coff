@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','Web\AppController@getApp')->middleware('auth');
+Route::get('/login','Web\AppController@getLogin')->name('login')->middleware('guest');
+Route::get('/auth/{social}/callback','Web\AuthenticationController@getSocialCallback');
+Route::get('/auth/{social}','Web\AuthenticationController@getSocialRedirect');
