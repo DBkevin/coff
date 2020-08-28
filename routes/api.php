@@ -13,8 +13,12 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::group(['prefix'=>'v1','middleware'=>'auth:api'],function(){
-    Route::get('/',function(Request $request){
+
+Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function () {
+    Route::get('/', function (Request $request) {
         return $request->user();
     });
+    Route::get('/cafes', 'API\CafesController@getCafes');
+    Route::post('/cafes', 'API\CafesController@postNewCafe');
+    Route::get('/cafes/{id}', 'API\CafesController@getCafe');
 });

@@ -15,13 +15,11 @@
 </head>
 
 <body>
-
+    aaaaa
     <div id="app">
         <router-view></router-view>
     </div>
-
     <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
-
 </body>
 
 </html>
